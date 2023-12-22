@@ -10,22 +10,22 @@ Summary:        Less.js The dynamic stylesheet language
 License:        ASL 2.0 and BSD
 
 URL:            http://lesscss.org
-Source0: https://registry.npmjs.org/less/-/less-%{version}.tgz
+Source0:        https://registry.npmjs.org/less/-/less-%{version}.tgz
 
 # Since we're installing this in a global location, fix the require()
 # calls to point there.
-Patch0001: 0001-Require-include-files-from-the-default-location.patch
-Patch0002: 0002-lessc-util.print-has-been-deprecated.patch
+Patch0001:      0001-Require-include-files-from-the-default-location.patch
+Patch0002:      0002-lessc-util.print-has-been-deprecated.patch
 
 BuildArch:      noarch
 BuildRequires:  nodejs-devel
 BuildRequires:  nodejs-packaging
 BuildRequires:  nodejs-grunt-cli
 Requires:       nodejs
-ExclusiveArch: %{nodejs_arches} noarch
+ExclusiveArch:  %{nodejs_arches} noarch
 
-Provides:  lessjs = %{version}-%{release}
-Obsoletes: lessjs < 1.3.3-2
+Provides:       lessjs = %{version}-%{release}
+Obsoletes:      lessjs < 1.3.3-2
 
 %description
 LESS extends CSS with dynamic behavior such as variables, mixins, operations
@@ -71,8 +71,10 @@ ln -s %{nodejs_sitelib}/less/bin/lessc \
 %changelog
 * Fri Dec 22 2023 Martin Styk <mart.styk@gmail.com> 1.7.0-3
 - Patch to remove util.print usage
+
 * Fri Dec 22 2023 Martin Styk <mart.styk@gmail.com> 1.7.0-2
 - Rebuild 1.7.0 in COPR
+
 * Wed Mar 05 2014 Stephen Gallagher <sgallagh@redhat.com> 1.7.0-1
 - New upstream release 1.7.0
 - https://github.com/less/less.js/blob/v1.7.0/CHANGELOG.md
