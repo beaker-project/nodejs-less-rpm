@@ -2,7 +2,7 @@
 
 Name:           nodejs-less
 Version:        1.7.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Less.js The dynamic stylesheet language
 
 # cssmin.js is licensed under BSD license
@@ -15,6 +15,7 @@ Source0: https://registry.npmjs.org/less/-/less-%{version}.tgz
 # Since we're installing this in a global location, fix the require()
 # calls to point there.
 Patch0001: 0001-Require-include-files-from-the-default-location.patch
+Patch0002: 0002-lessc-util.print-has-been-deprecated.patch
 
 BuildArch:      noarch
 BuildRequires:  nodejs-devel
@@ -68,6 +69,8 @@ ln -s %{nodejs_sitelib}/less/bin/lessc \
 
 
 %changelog
+* Fri Dec 22 2023 Martin Styk <mart.styk@gmail.com> 1.7.0-3
+- Patch to remove util.print usage
 * Fri Dec 22 2023 Martin Styk <mart.styk@gmail.com> 1.7.0-2
 - Rebuild 1.7.0 in COPR
 * Wed Mar 05 2014 Stephen Gallagher <sgallagh@redhat.com> 1.7.0-1
