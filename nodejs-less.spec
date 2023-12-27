@@ -36,6 +36,7 @@ and server-side, with Node.js and Rhino.
 %setup -q -n package
 
 %patch0001 -p1
+%patch0002 -p1
 
 # Remove pre-built files from the dist/ directory
 rm -f dist/*.js
