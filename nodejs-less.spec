@@ -1,5 +1,4 @@
 %{?nodejs_find_provides_and_requires}
-%global _default_patch_fuzz 2
 
 Name:           nodejs-less
 Version:        1.7.0
