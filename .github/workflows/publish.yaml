@@ -1,10 +1,9 @@
 name: Publish RPM
 
-#on:
-#  push:
-#    tags:
-#      - 'nodejs-less-*'
-on: [push]
+on:
+  push:
+    tags:
+      - 'nodejs-less-*'
 
 jobs:
   build-rpm:
@@ -28,4 +27,4 @@ jobs:
           printf "$COPR_CONFIG_FILE" > ~/.config/copr
       - name: Build new packages
         run: |
-          tito release copr || :
+          tito release copr
