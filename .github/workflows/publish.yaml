@@ -1,0 +1,30 @@
+name: Publish RPM
+
+#on:
+#  push:
+#    tags:
+#      - 'nodejs-less-*'
+on: [push]
+
+jobs:
+  build-rpm:
+    runs-on: ubuntu-latest
+    container:
+      image: centos:7
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install release toolbox
+        run: |
+          yum install git ca-certificates epel-release -y
+          yum install tito copr-cli -y
+      - name: Setup Copr config file
+        env:
+          # https://copr.fedorainfracloud.org/api/.
+          COPR_CONFIG_FILE: ${{ secrets.COPR_CONFIG }}
+        run: |
+          mkdir -p ~/.config
+          printf "$COPR_CONFIG_FILE" > ~/.config/copr
+      - name: Build new packages
+        run: |
+          tito release copr || :
