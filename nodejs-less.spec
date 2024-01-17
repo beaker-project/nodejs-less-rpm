@@ -2,7 +2,7 @@
 
 Name:           nodejs-less
 Version:        1.7.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Less.js The dynamic stylesheet language
 
 # cssmin.js is licensed under BSD license
@@ -70,6 +70,10 @@ ln -s %{nodejs_sitelib}/less/bin/lessc \
 
 
 %changelog
+* Wed Jan 17 2024 Martin Styk <mart.styk@gmail.com> 1.7.0-5
+- Include COPR releaser and always fetch 3rd party sources
+  (mart.styk@gmail.com)
+
 * Mon Jan 01 2024 Martin Styk <mart.styk@gmail.com> 1.7.0-4
 - new package built with tito
 
